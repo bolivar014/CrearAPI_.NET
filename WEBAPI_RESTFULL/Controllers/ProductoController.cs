@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WEBAPI_RESTFULL.Context;
+using WEBAPI_RESTFULL.Entities;
 
 namespace WEBAPI_RESTFULL.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    public class ProductoController : ControllerBase
+    // [ApiController]
+    // public class ProductoController : ControllerBase
+    public class ProductoController : Controller
     {
         private AppDbContext context;
 
@@ -16,9 +18,11 @@ namespace WEBAPI_RESTFULL.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        // public IEnumerable<string> Get()
+        public IEnumerable<Producto> Get()
         {
-            return new string[] { "value1", "value2" };
+            // return new string[] { "value1", "value2" };
+            return context.Producto.ToList();
         }
     }
 }
