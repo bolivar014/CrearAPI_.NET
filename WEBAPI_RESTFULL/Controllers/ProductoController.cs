@@ -24,5 +24,12 @@ namespace WEBAPI_RESTFULL.Controllers
             // return new string[] { "value1", "value2" };
             return context.Producto.ToList();
         }
+
+        [HttpGet("{id}")]
+        public Producto Get(string id)
+        {
+            var producto = context.Producto.FirstOrDefault(x => x.pro_codigo == id);
+            return producto;
+        }
     }
 }
